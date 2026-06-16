@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Book, TrendingUp, Play, Headphones, Clock, Star } from 'lucide-react';
+import { Book, TrendingUp, Play, Headphones, Clock, Star, ExternalLink } from 'lucide-react';
 import DailyMission from '../components/DailyMission';
 import PodcastPlayer from '../components/PodcastPlayer';
 import { podcastEpisodes, getRandomPodcast } from '../data/podcasts';
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
     <div className="container mx-auto px-4 max-w-md">
       <div className="flex items-center mb-6 px-4">
         <img 
-          src="/SvenskaLek Logo.png" 
+          src="/SvenskaLek_Logo.png"
           alt="SvenskaLek Logo" 
           className="h-12 w-12 object-contain mr-2"
         />
@@ -89,7 +89,7 @@ const Home: React.FC = () => {
 
         {/* Recent Episodes */}
         <div className="space-y-3">
-          <h3 className="font-medium text-neutral-700 dark:text-neutral-300">Recent Episodes</h3>
+          <h3 className="text-xl font-semibold dark:text-neutral-100">Recent Episodes</h3>
           {podcastEpisodes.slice(0, 3).map((episode) => (
             <button
               key={episode.id}
@@ -114,8 +114,30 @@ const Home: React.FC = () => {
             </button>
           ))}
         </div>
+
+        {/* External Resources */}
+        <div className="mt-4">
+          <h3 className="text-xl font-semibold dark:text-neutral-100 mb-3">Learn More</h3>
+          <a
+            href="https://urplay.se/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 card p-3 hover:shadow-md transition-shadow group"
+          >
+            <img
+              src="/ur-logo.png"
+              alt="UR Play"
+              className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
+            />
+            <div className="flex-1 text-left">
+              <h4 className="font-medium text-sm dark:text-neutral-100">UR Play — Swedish Public Media</h4>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Real Swedish TV & radio for learners</p>
+            </div>
+            <ExternalLink size={16} className="text-primary-500 dark:text-primary-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        </div>
       </section>
-      
+
       {/* Your Progress Section */}
       <section className="px-4">
         <h2 className="text-xl font-semibold mb-4 dark:text-neutral-100">Your Progress</h2>
