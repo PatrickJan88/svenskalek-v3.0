@@ -15,7 +15,7 @@ export const podcastEpisodes: PodcastEpisode[] = [
     title: 'Första intryck av Sverige',
     description: 'A beginner-friendly conversation about first impressions of Sweden',
     duration: '5:23',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+    audioUrl: '',
     imageUrl: '/20190603_stockholm-old-town.jpg',
     difficulty: 'Beginner',
     transcript: `För cirka 14 000 år sedan kom de första människorna till det som långt senare skulle kallas Skandinavien. De kom inte till Sverige, eftersom det skulle dröja många tusen år innan något som kallades så skulle finnas. De var varken skandinaver eller svenskar, utan kallade sig något annat som vi inte känner till. De var inte heller invandrare eftersom de inte passerade någon gräns som man kunde invandra eller utvandra över.
@@ -30,7 +30,7 @@ Det man kan säga är att forntiden är en historia om tiden innan Sverige. Vi l
     title: 'På restaurangen',
     description: 'Learn how to order food and drinks in Swedish restaurants',
     duration: '7:45',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+    audioUrl: '',
     imageUrl: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=300',
     difficulty: 'Beginner',
     transcript: 'Kan jag få menyn, tack? Jag skulle vilja beställa...'
@@ -40,7 +40,7 @@ Det man kan säga är att forntiden är en historia om tiden innan Sverige. Vi l
     title: 'Väder och årstider',
     description: 'Discussing weather and seasons in Sweden',
     duration: '6:12',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+    audioUrl: '',
     imageUrl: 'https://images.pexels.com/photos/235621/pexels-photo-235621.jpeg?auto=compress&cs=tinysrgb&w=300',
     difficulty: 'Intermediate',
     transcript: 'Idag är det kallt ute. Vintern i Sverige är lång och mörk.'
@@ -50,7 +50,7 @@ Det man kan säga är att forntiden är en historia om tiden innan Sverige. Vi l
     title: 'Svensk kultur och traditioner',
     description: 'Explore Swedish culture, traditions, and holidays',
     duration: '9:30',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+    audioUrl: '',
     imageUrl: 'https://images.pexels.com/photos/1267697/pexels-photo-1267697.jpeg?auto=compress&cs=tinysrgb&w=300',
     difficulty: 'Advanced',
     transcript: 'Midsommar är en av Sveriges viktigaste traditioner...'
@@ -60,7 +60,7 @@ Det man kan säga är att forntiden är en historia om tiden innan Sverige. Vi l
     title: 'Kollektivtrafik i Stockholm',
     description: 'Navigate public transportation in Stockholm',
     duration: '4:56',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+    audioUrl: '',
     imageUrl: 'https://images.pexels.com/photos/258045/pexels-photo-258045.jpeg?auto=compress&cs=tinysrgb&w=300',
     difficulty: 'Intermediate',
     transcript: 'Tunnelbanan i Stockholm är mycket effektiv...'
