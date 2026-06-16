@@ -30,7 +30,7 @@ const Home: React.FC = () => {
     <div className="container mx-auto px-4 max-w-md">
       <div className="flex items-center mb-6 px-4">
         <img 
-          src="/SvenskaLek_Logo.png"
+          src="/SvenskaLek Logo.png" 
           alt="SvenskaLek Logo" 
           className="h-12 w-12 object-contain mr-2"
         />
