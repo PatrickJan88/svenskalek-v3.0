@@ -11,7 +11,7 @@ SvenskaLek is my first AI-collaborated personal project focused on building an i
 ✅ Enhanced project hierarchy and structure <br />
 
 **Live Demo**
-Try the app here: https://papaya-cat-9382bf.netlify.app
+Try the app here: (https://svenskalek.vercel.app/)
 
 
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________
