@@ -220,7 +220,7 @@ const Explore: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 max-w-md">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
       <h1 className="text-2xl font-bold mb-6 text-primary-700 dark:text-primary-300">Explore</h1>
       
       {/* Upload/Camera Section */}

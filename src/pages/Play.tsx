@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ImageIcon, Volume2, AlignLeft, Book, ArrowLeft, VolumeX } from 'lucide-react';
+import { Image as ImageIcon, Volume2, AlignLeft, Book, ArrowLeft, VolumeX } from 'lucide-react';
 import QuizCard from '../components/QuizCard';
 import VocabularyReview from '../components/VocabularyReview';
 import { useVocabulary } from '../hooks/useVocabulary';
@@ -231,7 +231,7 @@ const Play: React.FC = () => {
   ];
   
   return (
-    <div className="container mx-auto px-4 max-w-md">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
       {!activeQuiz && !showVocabularyReview ? (
         <>
           <h1 className="text-2xl font-bold mb-6 text-primary-700 dark:text-primary-300">Play</h1>

@@ -214,7 +214,7 @@ const Vocabulary: React.FC = () => {
   // Show loading state while data is being loaded
   if (!isLoaded) {
     return (
-      <div className="container mx-auto px-4 max-w-md">
+      <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
         <div className="flex items-center mb-6">
           <button
             onClick={() => navigate(-1)}
@@ -233,7 +233,7 @@ const Vocabulary: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 max-w-md">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
       <div className="flex items-center mb-6">
         <button
           onClick={() => navigate(-1)}

@@ -27,7 +27,7 @@ const Home: React.FC = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 max-w-md">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
       <div className="flex items-center mb-6 px-4">
         <img 
           src="/SvenskaLek Logo.png" 
