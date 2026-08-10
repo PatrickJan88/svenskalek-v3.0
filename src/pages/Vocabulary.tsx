@@ -214,7 +214,7 @@ const Vocabulary: React.FC = () => {
   // Show loading state while data is being loaded
   if (!isLoaded) {
     return (
-      <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
+      <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
         <div className="flex items-center mb-6">
           <button
             onClick={() => navigate(-1)}
@@ -233,7 +233,7 @@ const Vocabulary: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
       <div className="flex items-center mb-6">
         <button
           onClick={() => navigate(-1)}
@@ -268,7 +268,7 @@ const Vocabulary: React.FC = () => {
             </p>
           </div>
           
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {savedWords.map((word) => {
               const isPlaying = currentlyPlaying === word.word;
               const canPlay = isInitialized && ttsSupported;

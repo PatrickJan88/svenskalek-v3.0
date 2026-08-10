@@ -220,7 +220,7 @@ const Explore: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
       <h1 className="text-2xl font-bold mb-6 text-primary-700 dark:text-primary-300">Explore</h1>
       
       {/* Upload/Camera Section */}
@@ -307,7 +307,7 @@ const Explore: React.FC = () => {
 
           {/* Vocabulary Grid - Now matching podcast card spacing */}
           {filteredWords.length > 0 ? (
-            <div className="space-y-3 pb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-8">
               {filteredWords.map((word) => (
                 <VocabularyCard
                   key={word.id}

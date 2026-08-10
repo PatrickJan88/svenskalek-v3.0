@@ -27,7 +27,7 @@ const Home: React.FC = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
       <div className="flex items-center mb-6 px-4">
         <img 
           src="/SvenskaLek Logo.png" 
@@ -37,19 +37,20 @@ const Home: React.FC = () => {
         <h1 className="text-2xl font-bold text-primary-700 dark:text-primary-300">SvenskaLek</h1>
       </div>
       
-      {/* Daily Mission Section */}
-      <section className="mb-8">
-        <div className="flex items-center justify-between mb-4 px-4">
-          <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Mission</h2>
-          <span className="text-sm text-primary-500 dark:text-primary-400 font-medium">
-            {missionProgress.completed}/{missionProgress.total} completed
-          </span>
-        </div>
-        <DailyMission onProgressUpdate={handleMissionProgress} />
-      </section>
-      
-      {/* Podcast Section */}
-      <section className="mb-8 px-4">
+      <div className="lg:grid lg:grid-cols-2 lg:gap-6">
+        {/* Daily Mission Section */}
+        <section className="mb-8">
+          <div className="flex items-center justify-between mb-4 px-4">
+            <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Mission</h2>
+            <span className="text-sm text-primary-500 dark:text-primary-400 font-medium">
+              {missionProgress.completed}/{missionProgress.total} completed
+            </span>
+          </div>
+          <DailyMission onProgressUpdate={handleMissionProgress} />
+        </section>
+
+        {/* Podcast Section */}
+        <section className="mb-8 px-4">
         <div className="mb-4">
           <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Podcast</h2>
         </div>
@@ -137,11 +138,13 @@ const Home: React.FC = () => {
           </a>
         </div>
       </section>
+      </div>
 
       {/* Your Progress Section */}
       <section className="px-4">
         <h2 className="text-xl font-semibold mb-4 dark:text-neutral-100">Your Progress</h2>
-        <div className="card p-4 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="card p-4">
           <div className="flex items-center">
             <div className="bg-primary-100 dark:bg-primary-900 p-3 rounded-full mr-4">
               <Book className="text-primary-500 dark:text-primary-300" size={24} />
@@ -163,6 +166,7 @@ const Home: React.FC = () => {
               <p className="text-xl font-bold dark:text-neutral-100">{streak} days</p>
             </div>
           </div>
+        </div>
         </div>
       </section>
 

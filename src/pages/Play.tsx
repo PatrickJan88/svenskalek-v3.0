@@ -231,14 +231,14 @@ const Play: React.FC = () => {
   ];
   
   return (
-    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
       {!activeQuiz && !showVocabularyReview ? (
         <>
           <h1 className="text-2xl font-bold mb-6 text-primary-700 dark:text-primary-300">Play</h1>
           
           <section className="mb-8">
             <h2 className="text-xl font-semibold mb-4 dark:text-neutral-100">Games</h2>
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {quizTypes.map(quiz => (
                 <button
                   key={quiz.id}

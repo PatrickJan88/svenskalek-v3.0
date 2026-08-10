@@ -78,7 +78,7 @@ const Settings: React.FC = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
       <h1 className="text-2xl font-bold mb-6 text-primary-700 dark:text-primary-300">Settings</h1>
       
       {/* User Profile Section */}
@@ -99,11 +99,12 @@ const Settings: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      <div className="card mb-6">
-        <div className="p-4 border-b border-neutral-200 dark:border-neutral-700">
-          <h2 className="font-semibold dark:text-neutral-100">App Settings</h2>
-        </div>
+
+      <div className="lg:grid lg:grid-cols-2 lg:gap-6">
+        <div className="card mb-6">
+          <div className="p-4 border-b border-neutral-200 dark:border-neutral-700">
+            <h2 className="font-semibold dark:text-neutral-100">App Settings</h2>
+          </div>
         
         <div className="divide-y divide-neutral-200 dark:divide-neutral-700">
           <div className="p-4 flex items-center justify-between">
@@ -169,25 +170,26 @@ const Settings: React.FC = () => {
             </label>
           </div>
         </div>
-      </div>
-      
-      <div className="card mb-6">
-        <div className="p-4 border-b border-neutral-200 dark:border-neutral-700">
-          <h2 className="font-semibold dark:text-neutral-100">Data</h2>
         </div>
+
+        <div className="card mb-6">
+          <div className="p-4 border-b border-neutral-200 dark:border-neutral-700">
+            <h2 className="font-semibold dark:text-neutral-100">Data</h2>
+          </div>
         
-        <button 
-          onClick={() => setShowResetDialog(true)}
-          className="p-4 w-full flex items-center text-left text-error-600 dark:text-error-400 hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors"
-        >
-          <div className="bg-error-100 dark:bg-error-900 p-2 rounded-full mr-3">
-            <Trash2 size={20} className="text-error-500 dark:text-error-400" />
-          </div>
-          <div>
-            <p className="font-medium">Reset Progress</p>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">Clear all your learning data</p>
-          </div>
-        </button>
+          <button 
+            onClick={() => setShowResetDialog(true)}
+            className="p-4 w-full flex items-center text-left text-error-600 dark:text-error-400 hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors"
+          >
+            <div className="bg-error-100 dark:bg-error-900 p-2 rounded-full mr-3">
+              <Trash2 size={20} className="text-error-500 dark:text-error-400" />
+            </div>
+            <div>
+              <p className="font-medium">Reset Progress</p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">Clear all your learning data</p>
+            </div>
+          </button>
+        </div>
       </div>
       
       <div className="card mb-6">

@@ -669,157 +669,162 @@ const Translate: React.FC = () => {
   const isTTSReady = isInitialized && ttsSupported && translatedText && translatedText !== 'Translation not available';
   
   return (
-    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl">
+    <div className="container mx-auto px-4 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
       <h1 className="text-2xl font-bold mb-6 text-primary-700 dark:text-primary-300">Translate</h1>
       
-      <div className="card p-4 mb-6">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
-            {fromLanguage === 'en' ? 'English' : 'Swedish'}
-          </span>
-          <button 
-            onClick={swapLanguages}
-            className="text-primary-500 dark:text-primary-400 text-sm font-medium flex items-center hover:text-primary-600 dark:hover:text-primary-300 transition-colors"
-          >
-            <Languages size={16} className="mr-1" />
-            <span>Swap Languages</span>
-          </button>
-        </div>
-        
-        <textarea
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-          className="input min-h-24 mb-4 resize-none"
-          placeholder={`Enter text in ${fromLanguage === 'en' ? 'English' : 'Swedish'}...`}
-        ></textarea>
-        
-        <button 
-          onClick={handleTranslate}
-          disabled={!inputText.trim() || isTranslating}
-          className="btn-primary w-full flex items-center justify-center"
-        >
-          {isTranslating ? (
-            <span>Translating...</span>
-          ) : (
-            <>
-              <span>
-                Translate to {fromLanguage === 'en' ? 'Swedish' : 'English'}
-              </span>
-              <ArrowRight size={18} className="ml-2" />
-            </>
-          )}
-        </button>
-      </div>
-      
-      {translatedText && (
-        <div className="card p-4 mb-6">
-          <div className="flex items-center justify-between mb-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div className="card p-4">
+          <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
-              {fromLanguage === 'en' ? 'Swedish' : 'English'}
+              {fromLanguage === 'en' ? 'English' : 'Swedish'}
             </span>
-          </div>
-          
-          <div className="bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg border border-neutral-200 dark:border-neutral-600 mb-4">
-            <p className="text-primary-700 dark:text-primary-300 font-medium text-lg">{translatedText}</p>
+            <button
+              onClick={swapLanguages}
+              className="text-primary-500 dark:text-primary-400 text-sm font-medium flex items-center hover:text-primary-600 dark:hover:text-primary-300 transition-colors"
+            >
+              <Languages size={16} className="mr-1" />
+              <span>Swap Languages</span>
+            </button>
           </div>
 
-          {/* Large, prominent TTS button */}
-          <button 
-            onClick={playPronunciation}
-            disabled={!isTTSReady}
-            className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 flex items-center justify-center ${
-              !isTTSReady
-                ? 'bg-neutral-200 dark:bg-neutral-700 text-neutral-400 dark:text-neutral-500 cursor-not-allowed'
-                : isSpeaking
-                  ? 'bg-error-500 hover:bg-error-600 text-white shadow-lg transform scale-105'
-                  : 'bg-primary-500 hover:bg-primary-600 text-white shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95'
-            }`}
-            title={
-              !isInitialized ? 'Loading audio system...' :
-              !ttsSupported ? 'Text-to-speech not supported in this browser' : 
-              !translatedText || translatedText === 'Translation not available' ? 'No translation to speak' :
-              isSpeaking ? 'Click to stop speaking' : 'Click to hear pronunciation'
-            }
+          <textarea
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            className="input min-h-24 mb-4 resize-none"
+            placeholder={`Enter text in ${fromLanguage === 'en' ? 'English' : 'Swedish'}...`}
+          ></textarea>
+
+          <button
+            onClick={handleTranslate}
+            disabled={!inputText.trim() || isTranslating}
+            className="btn-primary w-full flex items-center justify-center"
           >
-            {!isInitialized ? (
-              <>
-                <div className="w-6 h-6 border-3 border-current border-t-transparent rounded-full animate-spin" />
-                <span className="ml-3">Loading Audio...</span>
-              </>
-            ) : !ttsSupported ? (
-              <>
-                <VolumeX size={24} />
-                <span className="ml-3">Audio Not Available</span>
-              </>
-            ) : !translatedText || translatedText === 'Translation not available' ? (
-              <>
-                <VolumeX size={24} />
-                <span className="ml-3">No Translation</span>
-              </>
-            ) : isSpeaking ? (
-              <>
-                <span>🔇 Stop Speaking</span>
-              </>
+            {isTranslating ? (
+              <span>Translating...</span>
             ) : (
               <>
-                <span>🔊 Listen to Pronunciation</span>
+                <span>
+                  Translate to {fromLanguage === 'en' ? 'Swedish' : 'English'}
+                </span>
+                <ArrowRight size={18} className="ml-2" />
               </>
             )}
           </button>
-          
-          {/* Status info */}
-          {isTTSReady && (
-            <div className="mt-3 text-center">
-              <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                🎧 {fromLanguage === 'en' ? 'Swedish' : 'English'} pronunciation
-                {availableVoices.length > 0 && ` • ${availableVoices.length} voices available`}
-              </p>
-            </div>
-          )}
-          
-          {/* Error Display */}
-          {ttsError && (
-            <div className="mt-4 p-3 bg-error-100 dark:bg-error-900 border border-error-200 dark:border-error-800 rounded-lg">
-              <div className="flex items-start gap-2">
-                <AlertCircle size={16} className="text-error-600 dark:text-error-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-error-700 dark:text-error-300 text-sm font-medium">Audio Error</p>
-                  <p className="text-error-600 dark:text-error-400 text-sm">{ttsError}</p>
-                  <div className="mt-2 text-xs text-error-600 dark:text-error-400">
-                    <p><strong>Troubleshooting:</strong></p>
-                    <ul className="list-disc list-inside space-y-1 mt-1">
-                      <li>Check your browser's audio/volume settings</li>
-                      <li>Try Chrome, Edge, or Safari for best compatibility</li>
-                      <li>Make sure your device volume is turned up</li>
-                      <li>Close other apps that might be using audio</li>
-                    </ul>
+        </div>
+
+        <div className={`card p-4 ${!translatedText ? 'hidden lg:flex lg:items-center lg:justify-center' : ''}`}>
+          {translatedText ? (
+            <>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
+                  {fromLanguage === 'en' ? 'Swedish' : 'English'}
+                </span>
+              </div>
+
+              <div className="bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg border border-neutral-200 dark:border-neutral-600 mb-4">
+                <p className="text-primary-700 dark:text-primary-300 font-medium text-lg">{translatedText}</p>
+              </div>
+
+              <button
+                onClick={playPronunciation}
+                disabled={!isTTSReady}
+                className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 flex items-center justify-center ${
+                  !isTTSReady
+                    ? 'bg-neutral-200 dark:bg-neutral-700 text-neutral-400 dark:text-neutral-500 cursor-not-allowed'
+                    : isSpeaking
+                      ? 'bg-error-500 hover:bg-error-600 text-white shadow-lg transform scale-105'
+                      : 'bg-primary-500 hover:bg-primary-600 text-white shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95'
+                }`}
+                title={
+                  !isInitialized ? 'Loading audio system...' :
+                  !ttsSupported ? 'Text-to-speech not supported in this browser' :
+                  !translatedText || translatedText === 'Translation not available' ? 'No translation to speak' :
+                  isSpeaking ? 'Click to stop speaking' : 'Click to hear pronunciation'
+                }
+              >
+                {!isInitialized ? (
+                  <>
+                    <div className="w-6 h-6 border-3 border-current border-t-transparent rounded-full animate-spin" />
+                    <span className="ml-3">Loading Audio...</span>
+                  </>
+                ) : !ttsSupported ? (
+                  <>
+                    <VolumeX size={24} />
+                    <span className="ml-3">Audio Not Available</span>
+                  </>
+                ) : !translatedText || translatedText === 'Translation not available' ? (
+                  <>
+                    <VolumeX size={24} />
+                    <span className="ml-3">No Translation</span>
+                  </>
+                ) : isSpeaking ? (
+                  <>
+                    <span>Stop Speaking</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Listen to Pronunciation</span>
+                  </>
+                )}
+              </button>
+
+              {isTTSReady && (
+                <div className="mt-3 text-center">
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                    {fromLanguage === 'en' ? 'Swedish' : 'English'} pronunciation
+                    {availableVoices.length > 0 && ` • ${availableVoices.length} voices available`}
+                  </p>
+                </div>
+              )}
+
+              {ttsError && (
+                <div className="mt-4 p-3 bg-error-100 dark:bg-error-900 border border-error-200 dark:border-error-800 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle size={16} className="text-error-600 dark:text-error-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-error-700 dark:text-error-300 text-sm font-medium">Audio Error</p>
+                      <p className="text-error-600 dark:text-error-400 text-sm">{ttsError}</p>
+                      <div className="mt-2 text-xs text-error-600 dark:text-error-400">
+                        <p><strong>Troubleshooting:</strong></p>
+                        <ul className="list-disc list-inside space-y-1 mt-1">
+                          <li>Check your browser's audio/volume settings</li>
+                          <li>Try Chrome, Edge, or Safari for best compatibility</li>
+                          <li>Make sure your device volume is turned up</li>
+                          <li>Close other apps that might be using audio</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          )}
-          
-          {/* Browser compatibility warning */}
-          {isInitialized && !ttsSupported && (
-            <div className="mt-4 p-3 bg-warning-100 dark:bg-warning-900 border border-warning-200 dark:border-warning-800 rounded-lg">
-              <div className="flex items-start gap-2">
-                <AlertCircle size={16} className="text-warning-600 dark:text-warning-400 mt-0.5" />
-                <div>
-                  <p className="text-warning-700 dark:text-warning-300 text-sm font-medium">Audio Not Supported</p>
-                  <p className="text-warning-600 dark:text-warning-400 text-sm">
-                    Your browser doesn't support text-to-speech. For the best experience, please use:
-                  </p>
-                  <ul className="text-warning-600 dark:text-warning-400 text-sm list-disc list-inside mt-1">
-                    <li>Google Chrome (recommended)</li>
-                    <li>Microsoft Edge</li>
-                    <li>Safari</li>
-                  </ul>
+              )}
+
+              {isInitialized && !ttsSupported && (
+                <div className="mt-4 p-3 bg-warning-100 dark:bg-warning-900 border border-warning-200 dark:border-warning-800 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle size={16} className="text-warning-600 dark:text-warning-400 mt-0.5" />
+                    <div>
+                      <p className="text-warning-700 dark:text-warning-300 text-sm font-medium">Audio Not Supported</p>
+                      <p className="text-warning-600 dark:text-warning-400 text-sm">
+                        Your browser doesn't support text-to-speech. For the best experience, please use:
+                      </p>
+                      <ul className="text-warning-600 dark:text-warning-400 text-sm list-disc list-inside mt-1">
+                        <li>Google Chrome (recommended)</li>
+                        <li>Microsoft Edge</li>
+                        <li>Safari</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
+            </>
+          ) : (
+            <div className="text-center text-neutral-400 dark:text-neutral-500">
+              <Languages size={48} className="mx-auto mb-3 opacity-50" />
+              <p className="text-sm">Your translation will appear here</p>
             </div>
           )}
         </div>
-      )}
+      </div>
       
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-4 dark:text-neutral-100">Common Phrases</h2>
