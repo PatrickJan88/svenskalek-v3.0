@@ -171,7 +171,6 @@ const mockTranslations: Record<string, string> = {
   'brown': 'brun',
   'pink': 'rosa',
   'purple': 'lila',
-  'orange': 'orange',
   'gray': 'grå',
   'grey': 'grå',
   
