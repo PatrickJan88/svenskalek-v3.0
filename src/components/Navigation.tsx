@@ -78,31 +78,33 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl bg-white dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 shadow-lg z-10">
-      <div className="flex justify-around items-center">
-        {navItems.map(item => {
-          const isActive = location.pathname === item.path || 
-                          (item.path === '/' && location.pathname === '/');
-          
-          return (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={`nav-item ${isActive ? 'nav-item-active' : 'nav-item-inactive'}`}
-            >
-              <div className={`w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-lg transition-all duration-200 ${
-                isActive 
-                  ? 'bg-primary-500 bg-opacity-10 border border-primary-500 dark:border-primary-400' 
-                  : ''
-              }`}>
-                <div className="w-6 h-6 flex items-center justify-center">
-                  {item.icon}
+    <nav className="fixed bottom-0 left-0 right-0 w-full bg-white dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 shadow-lg z-10">
+      <div className="mx-auto w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-around items-center">
+          {navItems.map(item => {
+            const isActive = location.pathname === item.path || 
+                            (item.path === '/' && location.pathname === '/');
+            
+            return (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={`nav-item flex-1 ${isActive ? 'nav-item-active' : 'nav-item-inactive'}`}
+              >
+                <div className={`w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 flex items-center justify-center flex-shrink-0 rounded-lg transition-all duration-200 ${
+                  isActive 
+                    ? 'bg-primary-500 bg-opacity-10 border border-primary-500 dark:border-primary-400' 
+                    : ''
+                }`}>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 flex items-center justify-center">
+                    {item.icon}
+                  </div>
                 </div>
-              </div>
-              <span className="mt-1">{item.label}</span>
-            </NavLink>
-          );
-        })}
+                <span className="mt-1 text-xs sm:text-sm lg:text-base">{item.label}</span>
+              </NavLink>
+            );
+          })}
+        </div>
       </div>
     </nav>
   );
