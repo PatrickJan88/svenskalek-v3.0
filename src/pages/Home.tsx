@@ -39,8 +39,8 @@ const Home: React.FC = () => {
       
       <div className="lg:grid lg:grid-cols-2 lg:gap-4 lg:items-stretch">
         {/* Daily Mission Section */}
-        <section className="mb-8 flex flex-col">
-          <div className="flex items-center justify-between mb-4 px-4">
+        <section className="mb-8 flex flex-col px-4">
+          <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Mission</h2>
             <span className="text-sm text-primary-500 dark:text-primary-400 font-medium">
               {missionProgress.completed}/{missionProgress.total} completed
@@ -50,13 +50,13 @@ const Home: React.FC = () => {
         </section>
 
         {/* Podcast Section */}
-        <section className="mb-8 flex flex-col">
-          <div className="flex items-center justify-between mb-4 px-4">
+        <section className="mb-8 flex flex-col px-4">
+          <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Podcast</h2>
           </div>
 
         {/* Daily Podcast Card */}
-        <div className="card overflow-hidden mx-4 flex flex-col flex-1">
+        <div className="card overflow-hidden flex flex-col flex-1">
           <div className="relative flex-shrink-0">
             <img 
               src={featuredPodcast.imageUrl} 
