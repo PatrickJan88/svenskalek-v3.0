@@ -50,18 +50,18 @@ const Home: React.FC = () => {
         </section>
 
         {/* Podcast Section */}
-        <section className="mb-8 px-4">
-        <div className="mb-4">
-          <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Podcast</h2>
-        </div>
-        
+        <section className="mb-8">
+          <div className="flex items-center justify-between mb-4 px-4">
+            <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Podcast</h2>
+          </div>
+
         {/* Daily Podcast Card */}
-        <div className="card overflow-hidden mb-4">
+        <div className="card overflow-hidden mx-4">
           <div className="relative">
             <img 
               src={featuredPodcast.imageUrl} 
               alt={featuredPodcast.title}
-              className="w-full h-48 object-cover"
+              className="w-full h-56 object-cover"
             />
             <div className="absolute top-3 left-3">
               <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(featuredPodcast.difficulty)}`}>
