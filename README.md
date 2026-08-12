@@ -3,7 +3,6 @@
 SvenskaLek is my first AI-collaborated personal project focused on building an interactive and accessible web application for Swedish language learners. It’s designed to be both visually engaging and functionally supportive for daily vocabulary and grammar practice.
 
 **What’s New in Version 3.0.0** <br />
-✅ UR Play - External Learning Resource <br />
 ✅ Fixed several bugs and minor code issues <br />
 ✅ Activated sound playback for each mock vocabulary item <br />
 ✅ Added 200+ mock Swedish vocabulary entries <br />
