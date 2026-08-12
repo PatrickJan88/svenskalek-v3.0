@@ -206,12 +206,12 @@ const DailyMission: React.FC<DailyMissionProps> = ({ onProgressUpdate }) => {
         />
       </div>
       
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-1">
         <h3 className="font-medium dark:text-neutral-100 mb-2">
           {isExtraChallenge ? 'Extra Challenge' : 'What\'s this in Swedish?'}
         </h3>
         
-        <form onSubmit={handleSubmit} className="mb-2">
+        <form onSubmit={handleSubmit} className="mb-2 flex flex-col flex-1">
           <div className="relative">
             <input
               type="text"
@@ -254,7 +254,7 @@ const DailyMission: React.FC<DailyMissionProps> = ({ onProgressUpdate }) => {
             </motion.p>
           )}
           
-          <div className="mt-4">
+          <div className="mt-auto pt-4">
             {showFeedback !== 'correct' && (
               <button type="submit" className="btn-primary w-full">
                 Check Answer
