@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Book, TrendingUp, Play, Headphones, Clock, Star, ExternalLink } from 'lucide-react';
+import { Book, TrendingUp, Play, Clock, Star } from 'lucide-react';
 import DailyMission from '../components/DailyMission';
 import PodcastPlayer from '../components/PodcastPlayer';
 import { podcastEpisodes, getRandomPodcast } from '../data/podcasts';
@@ -88,55 +88,6 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Recent Episodes */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-semibold dark:text-neutral-100">Recent Episodes</h3>
-          {podcastEpisodes.slice(0, 3).map((episode) => (
-            <button
-              key={episode.id}
-              onClick={() => setSelectedPodcast(episode)}
-              className="w-full card p-3 flex items-center hover:shadow-md transition-shadow"
-            >
-              <img 
-                src={episode.imageUrl} 
-                alt={episode.title}
-                className="w-12 h-12 rounded-lg object-cover mr-3"
-              />
-              <div className="flex-1 text-left">
-                <h4 className="font-medium text-sm dark:text-neutral-100">{episode.title}</h4>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className={`px-2 py-0.5 rounded-full text-xs ${getDifficultyColor(episode.difficulty)}`}>
-                    {episode.difficulty}
-                  </span>
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400">{episode.duration}</span>
-                </div>
-              </div>
-              <Headphones size={16} className="text-primary-500 dark:text-primary-400" />
-            </button>
-          ))}
-        </div>
-
-        {/* External Resources */}
-        <div className="mt-4">
-          <h3 className="text-xl font-semibold dark:text-neutral-100 mb-3">Learn More</h3>
-          <a
-            href="https://urplay.se/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 card p-3 hover:shadow-md transition-shadow group"
-          >
-            <img
-              src="/ur-logo.png"
-              alt="UR Play"
-              className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
-            />
-            <div className="flex-1 text-left">
-              <h4 className="font-medium text-sm dark:text-neutral-100">UR Play — Swedish Public Media</h4>
-              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Real Swedish TV & radio for learners</p>
-            </div>
-            <ExternalLink size={16} className="text-primary-500 dark:text-primary-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
-        </div>
       </section>
       </div>
 
