@@ -37,9 +37,9 @@ const Home: React.FC = () => {
         <h1 className="text-2xl font-bold text-primary-700 dark:text-primary-300">SvenskaLek</h1>
       </div>
       
-      <div className="lg:grid lg:grid-cols-2 lg:gap-6">
+      <div className="lg:grid lg:grid-cols-2 lg:gap-6 lg:items-stretch">
         {/* Daily Mission Section */}
-        <section className="mb-8">
+        <section className="mb-8 flex flex-col">
           <div className="flex items-center justify-between mb-4 px-4">
             <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Mission</h2>
             <span className="text-sm text-primary-500 dark:text-primary-400 font-medium">
@@ -50,14 +50,14 @@ const Home: React.FC = () => {
         </section>
 
         {/* Podcast Section */}
-        <section className="mb-8">
+        <section className="mb-8 flex flex-col">
           <div className="flex items-center justify-between mb-4 px-4">
             <h2 className="text-xl font-semibold dark:text-neutral-100">Daily Podcast</h2>
           </div>
 
         {/* Daily Podcast Card */}
-        <div className="card overflow-hidden mx-4">
-          <div className="relative">
+        <div className="card overflow-hidden mx-4 flex flex-col flex-1">
+          <div className="relative flex-shrink-0">
             <img 
               src={featuredPodcast.imageUrl} 
               alt={featuredPodcast.title}
@@ -74,9 +74,9 @@ const Home: React.FC = () => {
             </div>
           </div>
           
-          <div className="p-4">
+          <div className="p-4 flex flex-col flex-1">
             <h3 className="font-semibold text-lg mb-2 dark:text-neutral-100">{featuredPodcast.title}</h3>
-            <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-4">{featuredPodcast.description}</p>
+            <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-4 flex-1">{featuredPodcast.description}</p>
             
             <button 
               onClick={() => setSelectedPodcast(featuredPodcast)}

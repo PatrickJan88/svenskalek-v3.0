@@ -125,8 +125,8 @@ const DailyMission: React.FC<DailyMissionProps> = ({ onProgressUpdate }) => {
   // Show completion screen
   if (showCompletion) {
     return (
-      <div className="card overflow-hidden mx-4">
-        <div className="p-6 text-center">
+      <div className="card overflow-hidden mx-4 flex flex-col flex-1">
+        <div className="p-6 text-center flex flex-col flex-1">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -197,8 +197,8 @@ const DailyMission: React.FC<DailyMissionProps> = ({ onProgressUpdate }) => {
   }
 
   return (
-    <div className="card overflow-hidden mx-4">
-      <div className="aspect-w-16 aspect-h-9 bg-neutral-200 dark:bg-neutral-700">
+    <div className="card overflow-hidden mx-4 flex flex-col flex-1">
+      <div className="aspect-w-16 aspect-h-9 bg-neutral-200 dark:bg-neutral-700 flex-shrink-0">
         <img 
           src={currentMission.imageUrl} 
           alt="Daily mission" 
