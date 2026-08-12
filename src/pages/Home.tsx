@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         <h1 className="text-2xl font-bold text-primary-700 dark:text-primary-300">SvenskaLek</h1>
       </div>
       
-      <div className="lg:grid lg:grid-cols-2 lg:gap-6 lg:items-stretch">
+      <div className="lg:grid lg:grid-cols-2 lg:gap-4 lg:items-stretch">
         {/* Daily Mission Section */}
         <section className="mb-8 flex flex-col">
           <div className="flex items-center justify-between mb-4 px-4">
